@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Input } from './Input/Input'
 import ReactDOM from 'react-dom'
+import style from './index.css'
 
 export const FormContainer: React.FC = () => {
   const [seo_title, setSeoTitle] = useState<string>('')
@@ -10,7 +11,7 @@ export const FormContainer: React.FC = () => {
   }
 
   return (
-    <form id="article-form">
+    <form id="article-form" className={style.form}>
       <Input
         text="SEO title"
         label="seo_title"
