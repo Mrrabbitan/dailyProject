@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Input } from './Input/Input'
 import ReactDOM from 'react-dom'
-import style from './index.css'
+const style = require('./index.less')
 
 export const FormContainer: React.FC = () => {
   const [seo_title, setSeoTitle] = useState<string>('')

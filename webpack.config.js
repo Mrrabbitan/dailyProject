@@ -5,12 +5,10 @@ const webpack = require('webpack')
 const { getThemeVariables } = require('antd/dist/theme')
 
 module.exports = {
-  mode: 'development',
-  devtool: 'cheap-module-eval-source-map',
   entry: './src/index.tsx',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, './dist'),
   },
   module: {
     rules: [
@@ -53,38 +51,30 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          { loader: 'style-loader' },
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-            },
-          },
-        ],
+        use: ['style-loader', 'css-loader'],
       },
-      {
-        test: /\.scss$/,
-        include: [path.join(__dirname, 'src')],
-        use: [
-          'style-loader',
-          'css-loader',
-          {
-            loader: 'scss-loader',
-            options: {
-              implementation: require('css'),
-              sassOptions: {
-                fiber: require('fibers'),
-              },
-              javascriptEnabled: true,
-            },
-          },
-        ],
-      },
+      // {
+      //   test: /\.scss$/,
+      //   include: [path.join(__dirname, 'src')],
+      //   use: [
+      //     'style-loader',
+      //     'css-loader',
+      //     {
+      //       loader: 'scss-loader',
+      //       options: {
+      //         implementation: require('css'),
+      //         sassOptions: {
+      //           fiber: require('fibers'),
+      //         },
+      //         javascriptEnabled: true,
+      //       },
+      //     },
+      //   ],
+      // },
     ],
   },
   resolve: {
-    extensions: ['.js', '.ts', '.tsx', '.css'],
+    extensions: ['.js', '.ts', '.tsx', '.css', '.less'],
     // alias: {
     //   react: pathToReact,
     // },
@@ -99,8 +89,6 @@ module.exports = {
     hotOnly: true, // 即便HMP的功能没有生效，浏览器也不能自动刷新
   },
   plugins: [
-    ['import', { libraryName: 'antd', style: 'css' }], // antd按需加载
-
     new webpack.HotModuleReplacementPlugin(),
     // new CleanWebpackPlugin(),
     // new HtmlWebPackPlugin({
