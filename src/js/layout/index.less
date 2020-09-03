@@ -1,0 +1,29 @@
+.headerTop {
+  height: 100px;
+  width: 100%;
+  background-color: black;
+  color: white;
+  line-height: 100px;
+  padding-left: 90px;
+  font-weight: 400px;
+  font-size: 20px;
+  box-shadow: 10px 5px 5px #aaa;
+}
+.content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow: hidden;
+  min-height: 888px;
+  .contentLeft {
+    width: 200px;
+    padding-bottom: 1000000px;
+    margin-bottom: -1000000px;
+    background: black;
+    box-shadow: 10px 5px 5px #aaa;
+  }
+  .contentRight {
+    width: calc(100% - 200px);
+    padding: 40px;
+  }
+}
