@@ -1,15 +1,34 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Menu } from 'antd'
 import { AppstoreOutlined, MenuUnfoldOutlined, MenuFoldOutlined, PieChartOutlined, DesktopOutlined, ContainerOutlined, MailOutlined } from '@ant-design/icons'
+import { getTabAction } from '../../../store/action'
+import { TabAction } from '../../../store/reducer'
+import * as dataAll from '../../../../public/static/ES6'
 const { SubMenu } = Menu
 
 export const LeftMenuComponent: React.FC = () => {
+  const dispatch = useDispatch()
   return (
     <>
-      <Menu defaultSelectedKeys={['1']} mode="inline" theme="dark">
+      <Menu defaultSelectedKeys={['sub1', 'filter']} mode="inline" theme="dark">
         <SubMenu key="sub1" icon={<PieChartOutlined />} title="ES6">
-          <Menu.Item key="1">filter</Menu.Item>
-          <Menu.Item key="2">promise</Menu.Item>
+          <Menu.Item
+            key="filter"
+            onClick={(e) => {
+              dispatch({ type: TabAction.filter, data: dataAll['filter'] })
+            }}
+          >
+            filter
+          </Menu.Item>
+          <Menu.Item
+            key="promise"
+            onClick={(e) => {
+              dispatch({ type: TabAction.promise, data: dataAll['promise'] })
+            }}
+          >
+            promise
+          </Menu.Item>
           <Menu.Item key="3">promise.all</Menu.Item>
         </SubMenu>
         <SubMenu key="sub2" icon={<DesktopOutlined />} title="ES7">

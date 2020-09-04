@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn build
+  /usr/local/bin/node /usr/local/bin/yarn add @redux-saga --save
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin
@@ -14,12 +14,17 @@ Platform:
   darwin x64
 
 Trace: 
-  SyntaxError: /Users/anzp/momenta/myDaily/webpack-react-tutorial/package.json: Unexpected token } in JSON at position 1222
-      at JSON.parse (<anonymous>)
-      at /usr/local/lib/node_modules/yarn/lib/cli.js:1625:59
-      at Generator.next (<anonymous>)
-      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:304:30)
-      at /usr/local/lib/node_modules/yarn/lib/cli.js:315:13
+  Error: https://artifactory.momenta.works/artifactory/api/npm/npm/@redux-saga: not_found
+      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66926:18)
+      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140564:22)
+      at Request.emit (events.js:311:20)
+      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141536:10)
+      at Request.emit (events.js:311:20)
+      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141458:12)
+      at Object.onceWrapper (events.js:417:28)
+      at IncomingMessage.emit (events.js:323:22)
+      at endReadableNT (_stream_readable.js:1204:12)
+      at processTicksAndRejections (internal/process/task_queues.js:84:21)
 
 npm manifest: 
   {
@@ -31,6 +36,7 @@ npm manifest:
       "test": "echo \"Error: no test specified\" && exit 1",
       "start": "webpack-dev-server --open --mode development",
       "build": "webpack --mode production",
+      "api": "mocker ./mocker/index.ts",
       "error": "webpack --display-error-details",
       "type-check": "tsc --watch"
     },
@@ -44,31 +50,39 @@ npm manifest:
       "@babel/preset-typescript": "^7.10.4",
       "@types/react": "^16.9.48",
       "antd": "^4.6.2",
+      "axios": "^0.20.0",
       "babel-loader": "^8.1.0",
+      "babel-plugin-react-css-modules": "^5.2.6",
       "clean-webpack-plugin": "^3.0.0",
       "css-loader": "^4.2.2",
       "fibers": "^5.0.0",
       "html-loader": "^1.3.0",
       "html-webpack-plugin": "^4.3.0",
+      "mock": "^0.1.1",
+      "mocker": "^0.1.2",
       "node-sass": "^4.14.1",
       "react": "^16.13.1",
+      "react-codemirror": "^1.0.0",
       "react-document-title": "^2.0.3",
       "react-dom": "^16.13.1",
+      "react-redux": "^7.2.1",
       "react-router-dom": "^5.2.0",
+      "react-saga": "^0.3.1",
       "react-scripts": "^3.4.3",
+      "redux": "^4.0.5",
       "sass": "^1.26.10",
       "sass-loader": "^10.0.1",
       "scss": "^0.2.4",
       "scss-loader": "^0.0.1",
       "webpack": "^4.44.1",
-      "webpack-cli": "^3.3.12",
-      "babel-plugin-react-css-modules": "^5.2.6",
+      "webpack-cli": "^3.3.12"
     },
     "devDependencies": {
       "babel-plugin-import": "^1.13.0",
       "extract-text-webpack-plugin": "^3.0.2",
       "less": "^3.12.2",
       "less-loader": "^7.0.0",
+      "mocker-api": "^2.3.5",
       "postcss-less": "^3.1.4",
       "postcss-loader": "^3.0.0",
       "react-hot-loader": "^4.12.21",
@@ -1367,17 +1381,17 @@ Lockfile:
       core-js-pure "^3.0.0"
       regenerator-runtime "^0.13.4"
   
+  "@babel/runtime@7.11.2", "@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.1", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.4", "@babel/runtime@^7.11.1", "@babel/runtime@^7.11.2", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4":
+    version "7.11.2"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/@babel/runtime/-/runtime-7.11.2.tgz#f549c13c754cc40b87644b9fa9f09a6a95fe0736"
+    integrity sha1-9UnBPHVMxAuHZEufqfCaapX+BzY=
+    dependencies:
+      regenerator-runtime "^0.13.4"
+  
   "@babel/runtime@7.9.0":
     version "7.9.0"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/@babel/runtime/-/runtime-7.9.0.tgz#337eda67401f5b066a6f205a3113d4ac18ba495b"
     integrity sha1-M37aZ0AfWwZqbyBaMRPUrBi6SVs=
-    dependencies:
-      regenerator-runtime "^0.13.4"
-  
-  "@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.1", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.4", "@babel/runtime@^7.11.1", "@babel/runtime@^7.11.2", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4":
-    version "7.11.2"
-    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/@babel/runtime/-/runtime-7.11.2.tgz#f549c13c754cc40b87644b9fa9f09a6a95fe0736"
-    integrity sha1-9UnBPHVMxAuHZEufqfCaapX+BzY=
     dependencies:
       regenerator-runtime "^0.13.4"
   
@@ -1790,15 +1804,54 @@ Lockfile:
     dependencies:
       "@babel/types" "^7.3.0"
   
+  "@types/body-parser@*", "@types/body-parser@1.19.0":
+    version "1.19.0"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/@types/body-parser/-/body-parser-1.19.0.tgz#0685b3c47eb3006ffed117cdd55164b61f80538f"
+    integrity sha1-BoWzxH6zAG/+0RfN1VFkth+AU48=
+    dependencies:
+      "@types/connect" "*"
+      "@types/node" "*"
+  
   "@types/color-name@^1.1.1":
     version "1.1.1"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/@types/color-name/-/color-name-1.1.1.tgz#1c1261bbeaa10a8055bbc5d8ab84b7b2afc846a0"
     integrity sha1-HBJhu+qhCoBVu8XYq4S3sq/IRqA=
   
+  "@types/connect@*":
+    version "3.4.33"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/@types/connect/-/connect-3.4.33.tgz#31610c901eca573b8713c3330abc6e6b9f588546"
+    integrity sha1-MWEMkB7KVzuHE8MzCrxua59YhUY=
+    dependencies:
+      "@types/node" "*"
+  
+  "@types/detect-port@1.3.0":
+    version "1.3.0"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/@types/detect-port/-/detect-port-1.3.0.tgz#3e9cbd049ec29e84a2ff7852dbc629c81245774c"
+    integrity sha1-Ppy9BJ7CnoSi/3hS28YpyBJFd0w=
+  
   "@types/eslint-visitor-keys@^1.0.0":
     version "1.0.0"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/@types/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#1ee30d79544ca84d68d4b3cdb0af4f205663dd2d"
     integrity sha1-HuMNeVRMqE1o1LPNsK9PIFZj3S0=
+  
+  "@types/express-serve-static-core@*":
+    version "4.17.12"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/@types/express-serve-static-core/-/express-serve-static-core-4.17.12.tgz#9a487da757425e4f267e7d1c5720226af7f89591"
+    integrity sha1-mkh9p1dCXk8mfn0cVyAiavf4lZE=
+    dependencies:
+      "@types/node" "*"
+      "@types/qs" "*"
+      "@types/range-parser" "*"
+  
+  "@types/express@4.17.7":
+    version "4.17.7"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/@types/express/-/express-4.17.7.tgz#42045be6475636d9801369cd4418ef65cdb0dd59"
+    integrity sha1-QgRb5kdWNtmAE2nNRBjvZc2w3Vk=
+    dependencies:
+      "@types/body-parser" "*"
+      "@types/express-serve-static-core" "*"
+      "@types/qs" "*"
+      "@types/serve-static" "*"
   
   "@types/glob@^7.1.1":
     version "7.1.3"
@@ -1812,6 +1865,13 @@ Lockfile:
     version "5.1.0"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/@types/html-minifier-terser/-/html-minifier-terser-5.1.0.tgz#551a4589b6ee2cc9c1dff08056128aec29b94880"
     integrity sha1-VRpFibbuLMnB3/CAVhKK7Cm5SIA=
+  
+  "@types/http-proxy@1.17.4":
+    version "1.17.4"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/@types/http-proxy/-/http-proxy-1.17.4.tgz#e7c92e3dbe3e13aa799440ff42e6d3a17a9d045b"
+    integrity sha1-58kuPb4+E6p5lED/QubToXqdBFs=
+    dependencies:
+      "@types/node" "*"
   
   "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0":
     version "2.0.3"
@@ -1843,6 +1903,11 @@ Lockfile:
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/@types/json-schema/-/json-schema-7.0.5.tgz#dcce4430e64b443ba8945f0290fb564ad5bac6dd"
     integrity sha1-3M5EMOZLRDuolF8CkPtWStW6xt0=
   
+  "@types/mime@*":
+    version "2.0.3"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/@types/mime/-/mime-2.0.3.tgz#c893b73721db73699943bfc3653b1deb7faa4a3a"
+    integrity sha1-yJO3NyHbc2mZQ7/DZTsd63+qSjo=
+  
   "@types/minimatch@*":
     version "3.0.3"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
@@ -1852,6 +1917,11 @@ Lockfile:
     version "14.6.2"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/@types/node/-/node-14.6.2.tgz#264b44c5a28dfa80198fc2f7b6d3c8a054b9491f"
     integrity sha1-JktExaKN+oAZj8L3ttPIoFS5SR8=
+  
+  "@types/node@13.13.15":
+    version "13.13.15"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/@types/node/-/node-13.13.15.tgz#fe1cc3aa465a3ea6858b793fd380b66c39919766"
+    integrity sha1-/hzDqkZaPqaFi3k/04C2bDmRl2Y=
   
   "@types/parse-json@^4.0.0":
     version "4.0.0"
@@ -1868,6 +1938,24 @@ Lockfile:
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/@types/q/-/q-1.5.4.tgz#15925414e0ad2cd765bfef58842f7e26a7accb24"
     integrity sha1-FZJUFOCtLNdlv+9YhC9+JqesyyQ=
   
+  "@types/qs@*":
+    version "6.9.4"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/@types/qs/-/qs-6.9.4.tgz#a59e851c1ba16c0513ea123830dd639a0a15cb6a"
+    integrity sha1-pZ6FHBuhbAUT6hI4MN1jmgoVy2o=
+  
+  "@types/range-parser@*":
+    version "1.2.3"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/@types/range-parser/-/range-parser-1.2.3.tgz#7ee330ba7caafb98090bece86a5ee44115904c2c"
+    integrity sha1-fuMwunyq+5gJC+zoal7kQRWQTCw=
+  
+  "@types/react@*":
+    version "16.9.49"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/@types/react/-/react-16.9.49.tgz#09db021cf8089aba0cdb12a49f8021a69cce4872"
+    integrity sha1-CdsCHPgImroM2xKkn4AhppzOSHI=
+    dependencies:
+      "@types/prop-types" "*"
+      csstype "^3.0.2"
+  
   "@types/react@^16.9.48":
     version "16.9.48"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/@types/react/-/react-16.9.48.tgz#d3387329f070d1b1bc0ff4a54a54ceefd5a8485c"
@@ -1875,6 +1963,21 @@ Lockfile:
     dependencies:
       "@types/prop-types" "*"
       csstype "^3.0.2"
+  
+  "@types/redux-saga@^0.9.31":
+    version "0.9.31"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/@types/redux-saga/-/redux-saga-0.9.31.tgz#6b8de326835e179037a3bbcf658a10f60542bafc"
+    integrity sha1-a43jJoNeF5A3o7vPZYoQ9gVCuvw=
+    dependencies:
+      redux "^3.6.0"
+  
+  "@types/serve-static@*":
+    version "1.13.5"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/@types/serve-static/-/serve-static-1.13.5.tgz#3d25d941a18415d3ab092def846e135a08bbcf53"
+    integrity sha1-PSXZQaGEFdOrCS3vhG4TWgi7z1M=
+    dependencies:
+      "@types/express-serve-static-core" "*"
+      "@types/mime" "*"
   
   "@types/source-list-map@*":
     version "0.1.2"
@@ -2632,7 +2735,7 @@ Lockfile:
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/arrify/-/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d"
     integrity sha1-iYUI2iIm84DfkEcoRWhJwVAaSw0=
   
-  asap@~2.0.6:
+  asap@~2.0.3, asap@~2.0.6:
     version "2.0.6"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/asap/-/asap-2.0.6.tgz#e50347611d7e690943208bbdafebcbc2fb866d46"
     integrity sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=
@@ -2748,6 +2851,13 @@ Lockfile:
     version "1.10.1"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/aws4/-/aws4-1.10.1.tgz#e1e82e4f3e999e2cfd61b161280d16a111f86428"
     integrity sha1-4eguTz6Zniz9YbFhKA0WoRH4ZCg=
+  
+  axios@^0.20.0:
+    version "0.20.0"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/axios/-/axios-0.20.0.tgz#057ba30f04884694993a8cd07fa394cff11c50bd"
+    integrity sha1-BXujDwSIRpSZOozQf6OUz/EcUL0=
+    dependencies:
+      follow-redirects "^1.10.0"
   
   axobject-query@^2.0.2:
     version "2.2.0"
@@ -3301,7 +3411,7 @@ Lockfile:
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/callsites/-/callsites-2.0.0.tgz#06eb84f00eea413da86affefacbffb36093b3c50"
     integrity sha1-BuuE8A7qQT2oav/vrL/7Ngk7PFA=
   
-  callsites@^3.0.0:
+  callsites@^3.0.0, callsites@^3.1.0:
     version "3.1.0"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/callsites/-/callsites-3.1.0.tgz#b3630abd8943432f54b3f0519238e33cd7df2f73"
     integrity sha1-s2MKvYlDQy9Us/BRkjjjPNffL3M=
@@ -3412,7 +3522,7 @@ Lockfile:
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/chardet/-/chardet-0.7.0.tgz#90094849f0937f2eedc2425d0d28a9e5f0cbad9e"
     integrity sha1-kAlISfCTfy7twkJdDSip5fDLrZ4=
   
-  "chokidar@>=2.0.0 <4.0.0", chokidar@^3.3.0, chokidar@^3.4.1:
+  chokidar@3.4.2, "chokidar@>=2.0.0 <4.0.0", chokidar@^3.3.0, chokidar@^3.4.1:
     version "3.4.2"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/chokidar/-/chokidar-3.4.2.tgz#38dc8e658dec3809741eb3ef7bb0a47fe424232d"
     integrity sha1-ONyOZY3sOAl0HrPve7Ckf+QkIy0=
@@ -3506,6 +3616,14 @@ Lockfile:
       "@types/webpack" "^4.4.31"
       del "^4.1.1"
   
+  clear-module@4.1.1:
+    version "4.1.1"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/clear-module/-/clear-module-4.1.1.tgz#bf8ba3b62eb70ee1e0adec90589741425cf32db8"
+    integrity sha1-v4ujti63DuHgreyQWJdBQlzzLbg=
+    dependencies:
+      parent-module "^2.0.0"
+      resolve-from "^5.0.0"
+  
   cli-cursor@^3.1.0:
     version "3.1.0"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/cli-cursor/-/cli-cursor-3.1.0.tgz#264305a7ae490d1d03bf0c9ba7c925d1753af307"
@@ -3571,6 +3689,11 @@ Lockfile:
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
     integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
   
+  codemirror@^5.18.2:
+    version "5.57.0"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/codemirror/-/codemirror-5.57.0.tgz#d26365b72f909f5d2dbb6b1209349ca1daeb2d50"
+    integrity sha1-0mNlty+Qn10tu2sSCTScodrrLVA=
+  
   collection-visit@^1.0.0:
     version "1.0.0"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/collection-visit/-/collection-visit-1.0.0.tgz#4bc0373c164bc3291b4d368c829cf1a80a59dca0"
@@ -3623,6 +3746,11 @@ Lockfile:
     version "1.2.1"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/colorette/-/colorette-1.2.1.tgz#4d0b921325c14faf92633086a536db6e89564b1b"
     integrity sha1-TQuSEyXBT6+SYzCGpTbbbolWSxs=
+  
+  colors-cli@1.0.27:
+    version "1.0.27"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/colors-cli/-/colors-cli-1.0.27.tgz#1a33f6cfc013cdb55e50bac0bff1a8f5f0866cf8"
+    integrity sha1-GjP2z8ATzbVeULrAv/Go9fCGbPg=
   
   combined-stream@^1.0.6, combined-stream@~1.0.6:
     version "1.0.8"
@@ -3804,6 +3932,11 @@ Lockfile:
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/core-js-pure/-/core-js-pure-3.6.5.tgz#c79e75f5e38dbc85a662d91eea52b8256d53b813"
     integrity sha1-x5519eONvIWmYtke6lK4JW1TuBM=
   
+  core-js@^1.0.0:
+    version "1.2.7"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
+    integrity sha1-ZSKUwUZR2yj6k70tX/KYOk8IxjY=
+  
   core-js@^2.4.0:
     version "2.6.11"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/core-js/-/core-js-2.6.11.tgz#38831469f9922bded8ee21c9dc46985e0399308c"
@@ -3870,6 +4003,15 @@ Lockfile:
       ripemd160 "^2.0.0"
       safe-buffer "^5.0.1"
       sha.js "^2.4.8"
+  
+  create-react-class@^15.5.1:
+    version "15.6.3"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/create-react-class/-/create-react-class-15.6.3.tgz#2d73237fb3f970ae6ebe011a9e66f46dbca80036"
+    integrity sha1-LXMjf7P5cK5uvgEanmb0bbyoADY=
+    dependencies:
+      fbjs "^0.8.9"
+      loose-envify "^1.3.1"
+      object-assign "^4.1.1"
   
   cross-spawn@7.0.1:
     version "7.0.1"
@@ -4380,6 +4522,14 @@ Lockfile:
       address "^1.0.1"
       debug "^2.6.0"
   
+  detect-port@1.3.0:
+    version "1.3.0"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/detect-port/-/detect-port-1.3.0.tgz#d9c40e9accadd4df5cac6a782aefd014d573d1f1"
+    integrity sha1-2cQOmsyt1N9crGp4Ku/QFNVz0fE=
+    dependencies:
+      address "^1.0.1"
+      debug "^2.6.0"
+  
   diff-sequences@^24.9.0:
     version "24.9.0"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/diff-sequences/-/diff-sequences-24.9.0.tgz#5715d6244e2aa65f48bba0bc972db0b0b11e95b5"
@@ -4634,6 +4784,13 @@ Lockfile:
     version "1.0.2"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/encodeurl/-/encodeurl-1.0.2.tgz#ad3ff4c86ec2d029322f5a02c3a9a606c95b3f59"
     integrity sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=
+  
+  encoding@^0.1.11:
+    version "0.1.13"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/encoding/-/encoding-0.1.13.tgz#56574afdd791f54a8e9b2785c0582a2d26210fa9"
+    integrity sha1-VldK/deR9UqOmyeFwFgqLSYhD6k=
+    dependencies:
+      iconv-lite "^0.6.2"
   
   end-of-stream@^1.0.0, end-of-stream@^1.1.0:
     version "1.4.4"
@@ -5080,7 +5237,7 @@ Lockfile:
       jest-message-util "^24.9.0"
       jest-regex-util "^24.9.0"
   
-  express@^4.17.1:
+  express@4.17.1, express@^4.17.1:
     version "4.17.1"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/express/-/express-4.17.1.tgz#4491fc38605cf51f8629d39c2b5d026f98a4c134"
     integrity sha1-RJH8OGBc9R+GKdOcK10Cb5ikwTQ=
@@ -5243,6 +5400,19 @@ Lockfile:
     integrity sha1-/IT7OdJwnPP/bXQ3BhV7tXCKioU=
     dependencies:
       bser "2.1.1"
+  
+  fbjs@^0.8.9:
+    version "0.8.17"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/fbjs/-/fbjs-0.8.17.tgz#c4d598ead6949112653d6588b01a5cdcd9f90fdd"
+    integrity sha1-xNWY6taUkRJlPWWIsBpc3Nn5D90=
+    dependencies:
+      core-js "^1.0.0"
+      isomorphic-fetch "^2.1.1"
+      loose-envify "^1.0.0"
+      object-assign "^4.1.0"
+      promise "^7.1.1"
+      setimmediate "^1.0.5"
+      ua-parser-js "^0.7.18"
   
   fibers@^5.0.0:
     version "5.0.0"
@@ -5412,7 +5582,7 @@ Lockfile:
       inherits "^2.0.3"
       readable-stream "^2.3.6"
   
-  follow-redirects@^1.0.0:
+  follow-redirects@^1.0.0, follow-redirects@^1.10.0:
     version "1.13.0"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/follow-redirects/-/follow-redirects-1.13.0.tgz#b42e8d93a2a7eea5ed88633676d6597bc8e384db"
     integrity sha1-tC6Nk6Kn7qXtiGM2dtZZe8jjhNs=
@@ -6106,7 +6276,7 @@ Lockfile:
       lodash "^4.17.11"
       micromatch "^3.1.10"
   
-  http-proxy@^1.17.0:
+  http-proxy@1.18.1, http-proxy@^1.17.0:
     version "1.18.1"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/http-proxy/-/http-proxy-1.18.1.tgz#401541f0534884bbf95260334e72f88ee3976549"
     integrity sha1-QBVB8FNIhLv5UmAzTnL4juOXZUk=
@@ -6135,6 +6305,13 @@ Lockfile:
     integrity sha1-ICK0sl+93CHS9SSXSkdKr+czkIs=
     dependencies:
       safer-buffer ">= 2.1.2 < 3"
+  
+  iconv-lite@^0.6.2:
+    version "0.6.2"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/iconv-lite/-/iconv-lite-0.6.2.tgz#ce13d1875b0c3a674bd6a04b7f76b01b1b6ded01"
+    integrity sha1-zhPRh1sMOmdL1qBLf3awGxtt7QE=
+    dependencies:
+      safer-buffer ">= 2.1.2 < 3.0.0"
   
   icss-replace-symbols@1.1.0, icss-replace-symbols@^1.0.2, icss-replace-symbols@^1.1.0:
     version "1.1.0"
@@ -6543,6 +6720,11 @@ Lockfile:
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/is-generator-fn/-/is-generator-fn-2.1.0.tgz#7d140adc389aaf3011a8f2a2a4cfa6faadffb118"
     integrity sha1-fRQK3DiarzARqPKipM+m+q3/sRg=
   
+  is-generator-function@^1.0.3:
+    version "1.0.7"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/is-generator-function/-/is-generator-function-1.0.7.tgz#d2132e529bb0000a7f80794d4bdf5cd5e5813522"
+    integrity sha1-0hMuUpuwAAp/gHlNS99c1eWBNSI=
+  
   is-glob@^3.1.0:
     version "3.1.0"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/is-glob/-/is-glob-3.1.0.tgz#7ba5ae24217804ac70707b96922567486cc3e84a"
@@ -6637,7 +6819,7 @@ Lockfile:
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/is-root/-/is-root-2.1.0.tgz#809e18129cf1129644302a4f8544035d51984a9c"
     integrity sha1-gJ4YEpzxEpZEMCpPhUQDXVGYSpw=
   
-  is-stream@^1.1.0:
+  is-stream@^1.0.1, is-stream@^1.1.0:
     version "1.1.0"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/is-stream/-/is-stream-1.1.0.tgz#12d4a3dd4e68e0b79ceb8dbc84173ae80d91ca44"
     integrity sha1-EtSj3U5o4Lec6428hBc66A2RykQ=
@@ -6714,6 +6896,14 @@ Lockfile:
     version "3.0.1"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
     integrity sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
+  
+  isomorphic-fetch@^2.1.1:
+    version "2.2.1"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/isomorphic-fetch/-/isomorphic-fetch-2.2.1.tgz#611ae1acf14f5e81f729507472819fe9733558a9"
+    integrity sha1-YRrhrPFPXoH3KVB0coGf6XM1WKk=
+    dependencies:
+      node-fetch "^1.0.1"
+      whatwg-fetch ">=0.10.0"
   
   isstream@~0.1.2:
     version "0.1.2"
@@ -7541,6 +7731,11 @@ Lockfile:
       emojis-list "^3.0.0"
       json5 "^2.1.2"
   
+  local-ip-url@1.0.3:
+    version "1.0.3"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/local-ip-url/-/local-ip-url-1.0.3.tgz#4a4bf4eff91a847f870918dff3e1e3273605a81d"
+    integrity sha1-Skv07/kahH+HCRjf8+HjJzYFqB0=
+  
   locate-path@^2.0.0:
     version "2.0.0"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/locate-path/-/locate-path-2.0.0.tgz#2b568b265eec944c6d9c0de9c3dbbbca0354cd8e"
@@ -7563,6 +7758,11 @@ Lockfile:
     integrity sha1-Gvujlq/WdqbUJQTQpno6frn2KqA=
     dependencies:
       p-locate "^4.1.0"
+  
+  lodash-es@^4.2.1:
+    version "4.17.15"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/lodash-es/-/lodash-es-4.17.15.tgz#21bd96839354412f23d7a10340e5eac6ee455d78"
+    integrity sha1-Ib2Wg5NUQS8j16EDQOXqxu5FXXg=
   
   lodash._arrayeach@^3.0.0:
     version "3.0.0"
@@ -7596,6 +7796,11 @@ Lockfile:
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/lodash.camelcase/-/lodash.camelcase-4.3.0.tgz#b28aa6288a2b9fc651035c7711f65ab6190331a6"
     integrity sha1-soqmKIorn8ZRA1x3EfZathkDMaY=
   
+  lodash.debounce@^4.0.8:
+    version "4.0.8"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
+    integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
+  
   lodash.foreach@^3.0.3:
     version "3.0.3"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/lodash.foreach/-/lodash.foreach-3.0.3.tgz#6fd7efb79691aecd67fdeac2761c98e701d6c39a"
@@ -7615,6 +7820,11 @@ Lockfile:
     version "3.0.4"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/lodash.isarray/-/lodash.isarray-3.0.4.tgz#79e4eb88c36a8122af86f844aa9bcd851b5fbb55"
     integrity sha1-eeTriMNqgSKvhvhEqpvNhRtfu1U=
+  
+  lodash.isequal@^4.5.0:
+    version "4.5.0"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
+    integrity sha1-QVxEePK8wwEgwizhDtMib30+GOA=
   
   lodash.keys@^3.0.0:
     version "3.1.2"
@@ -7655,7 +7865,7 @@ Lockfile:
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
     integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
   
-  "lodash@>=3.5 <5", lodash@^4.0.0, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.5, lodash@~4.17.10:
+  "lodash@>=3.5 <5", lodash@^4.0.0, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.5, lodash@^4.2.1, lodash@~4.17.10:
     version "4.17.20"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
     integrity sha1-tEqbYpe8tpjxxRo1RaKzs2jVnFI=
@@ -8012,6 +8222,37 @@ Lockfile:
     dependencies:
       minimist "^1.2.5"
   
+  mock@^0.1.1:
+    version "0.1.1"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/mock/-/mock-0.1.1.tgz#e7e3589c7e6b3376d69f5a3e470b56604417c633"
+    integrity sha1-5+NYnH5rM3bWn1o+RwtWYEQXxjM=
+  
+  mocker-api@^2.3.5:
+    version "2.3.5"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/mocker-api/-/mocker-api-2.3.5.tgz#38ab66592aaa88c1425603f2db7fc17a94167e73"
+    integrity sha1-OKtmWSqqiMFCVgPy23/BepQWfnM=
+    dependencies:
+      "@babel/runtime" "7.11.2"
+      "@types/body-parser" "1.19.0"
+      "@types/detect-port" "1.3.0"
+      "@types/express" "4.17.7"
+      "@types/http-proxy" "1.17.4"
+      "@types/node" "13.13.15"
+      body-parser "1.19.0"
+      chokidar "3.4.2"
+      clear-module "4.1.1"
+      colors-cli "1.0.27"
+      detect-port "1.3.0"
+      express "4.17.1"
+      http-proxy "1.18.1"
+      local-ip-url "1.0.3"
+      path-to-regexp "6.1.0"
+  
+  mocker@^0.1.2:
+    version "0.1.2"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/mocker/-/mocker-0.1.2.tgz#462dc9a486dcc7bead2ef47a0244c89a24bdfa8f"
+    integrity sha1-Ri3JpIbcx76tLvR6AkTImiS9+o8=
+  
   moment@^2.24.0, moment@^2.25.3:
     version "2.27.0"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/moment/-/moment-2.27.0.tgz#8bff4e3e26a236220dfe3e36de756b6ebaa0105d"
@@ -8121,6 +8362,14 @@ Lockfile:
     dependencies:
       lower-case "^2.0.1"
       tslib "^1.10.0"
+  
+  node-fetch@^1.0.1:
+    version "1.7.3"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/node-fetch/-/node-fetch-1.7.3.tgz#980f6f72d85211a5347c6b2bc18c5b84c3eb47ef"
+    integrity sha1-mA9vcthSEaU0fGsrwYxbhMPrR+8=
+    dependencies:
+      encoding "^0.1.11"
+      is-stream "^1.0.1"
   
   node-forge@0.9.0:
     version "0.9.0"
@@ -8635,6 +8884,13 @@ Lockfile:
     dependencies:
       callsites "^3.0.0"
   
+  parent-module@^2.0.0:
+    version "2.0.0"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/parent-module/-/parent-module-2.0.0.tgz#fa71f88ff1a50c27e15d8ff74e0e3a9523bf8708"
+    integrity sha1-+nH4j/GlDCfhXY/3Tg46lSO/hwg=
+    dependencies:
+      callsites "^3.1.0"
+  
   parse-asn1@^5.0.0, parse-asn1@^5.1.5:
     version "5.1.6"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/parse-asn1/-/parse-asn1-5.1.6.tgz#385080a3ec13cb62a62d39409cb3e88844cdaed4"
@@ -8760,6 +9016,11 @@ Lockfile:
     version "0.1.7"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/path-to-regexp/-/path-to-regexp-0.1.7.tgz#df604178005f522f15eb4490e7247a1bfaa67f8c"
     integrity sha1-32BBeABfUi8V60SQ5yR6G/qmf4w=
+  
+  path-to-regexp@6.1.0:
+    version "6.1.0"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/path-to-regexp/-/path-to-regexp-6.1.0.tgz#0b18f88b7a0ce0bfae6a25990c909ab86f512427"
+    integrity sha1-Cxj4i3oM4L+uaiWZDJCauG9RJCc=
   
   path-to-regexp@^1.7.0:
     version "1.8.0"
@@ -9719,6 +9980,13 @@ Lockfile:
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/promise-inflight/-/promise-inflight-1.0.1.tgz#98472870bf228132fcbdd868129bad12c3c029e3"
     integrity sha1-mEcocL8igTL8vdhoEputEsPAKeM=
   
+  promise@^7.1.1:
+    version "7.3.1"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/promise/-/promise-7.3.1.tgz#064b72602b18f90f29192b8b1bc418ffd1ebd3bf"
+    integrity sha1-BktyYCsY+Q8pGSuLG8QY/9Hr078=
+    dependencies:
+      asap "~2.0.3"
+  
   promise@^8.0.3:
     version "8.1.0"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/promise/-/promise-8.1.0.tgz#697c25c3dfe7435dd79fcd58c38a135888eaf05e"
@@ -9734,7 +10002,7 @@ Lockfile:
       kleur "^3.0.3"
       sisteransi "^1.0.4"
   
-  prop-types@^15.5.6, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+  prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
     version "15.7.2"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
     integrity sha1-UsQedbjIfnK52TYOAga5ncv/psU=
@@ -10257,6 +10525,18 @@ Lockfile:
       regenerator-runtime "^0.13.3"
       whatwg-fetch "^3.0.0"
   
+  react-codemirror@^1.0.0:
+    version "1.0.0"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/react-codemirror/-/react-codemirror-1.0.0.tgz#91467b53b1f5d80d916a2fd0b4c7adb85a9001ba"
+    integrity sha1-kUZ7U7H12A2Rai/QtMetuFqQAbo=
+    dependencies:
+      classnames "^2.2.5"
+      codemirror "^5.18.2"
+      create-react-class "^15.5.1"
+      lodash.debounce "^4.0.8"
+      lodash.isequal "^4.5.0"
+      prop-types "^15.5.4"
+  
   react-dev-utils@^10.2.1:
     version "10.2.1"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/react-dev-utils/-/react-dev-utils-10.2.1.tgz#f6de325ae25fa4d546d09df4bb1befdc6dd19c19"
@@ -10324,7 +10604,7 @@ Lockfile:
       shallowequal "^1.1.0"
       source-map "^0.7.3"
   
-  react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4:
+  react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.9.0:
     version "16.13.1"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
     integrity sha1-eJcppNw23imZ3BVt1sHZwYzqVqQ=
@@ -10333,6 +10613,17 @@ Lockfile:
     version "3.0.4"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
     integrity sha1-TxonOv38jzSIqMUWv9p4+HI1I2I=
+  
+  react-redux@^7.2.1:
+    version "7.2.1"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/react-redux/-/react-redux-7.2.1.tgz#8dedf784901014db2feca1ab633864dee68ad985"
+    integrity sha1-je33hJAQFNsv7KGrYzhk3uaK2YU=
+    dependencies:
+      "@babel/runtime" "^7.5.5"
+      hoist-non-react-statics "^3.3.0"
+      loose-envify "^1.4.0"
+      prop-types "^15.7.2"
+      react-is "^16.9.0"
   
   react-router-dom@^5.2.0:
     version "5.2.0"
@@ -10362,6 +10653,15 @@ Lockfile:
       react-is "^16.6.0"
       tiny-invariant "^1.0.2"
       tiny-warning "^1.0.0"
+  
+  react-saga@^0.3.1:
+    version "0.3.1"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/react-saga/-/react-saga-0.3.1.tgz#61a3ec577f79b4dcb389a4f496a5036a7fea31a7"
+    integrity sha1-YaPsV395tNyziaT0lqUDan/qMac=
+    dependencies:
+      "@types/react" "*"
+      "@types/redux-saga" "^0.9.31"
+      is-generator-function "^1.0.3"
   
   react-scripts@^3.4.3:
     version "3.4.3"
@@ -10549,6 +10849,24 @@ Lockfile:
     dependencies:
       indent-string "^2.1.0"
       strip-indent "^1.0.1"
+  
+  redux@^3.6.0:
+    version "3.7.2"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/redux/-/redux-3.7.2.tgz#06b73123215901d25d065be342eb026bc1c8537b"
+    integrity sha1-BrcxIyFZAdJdBlvjQusCa8HIU3s=
+    dependencies:
+      lodash "^4.2.1"
+      lodash-es "^4.2.1"
+      loose-envify "^1.1.0"
+      symbol-observable "^1.0.3"
+  
+  redux@^4.0.5:
+    version "4.0.5"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/redux/-/redux-4.0.5.tgz#4db5de5816e17891de8a80c424232d06f051d93f"
+    integrity sha1-TbXeWBbheJHeioDEJCMtBvBR2T8=
+    dependencies:
+      loose-envify "^1.4.0"
+      symbol-observable "^1.2.0"
   
   regenerate-unicode-properties@^8.2.0:
     version "8.2.0"
@@ -10759,6 +11077,11 @@ Lockfile:
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/resolve-from/-/resolve-from-4.0.0.tgz#4abcd852ad32dd7baabfe9b40e00a36db5f392e6"
     integrity sha1-SrzYUq0y3Xuqv+m0DgCjbbXzkuY=
   
+  resolve-from@^5.0.0:
+    version "5.0.0"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/resolve-from/-/resolve-from-5.0.0.tgz#c35225843df8f776df21c57557bc087e9dfdfc69"
+    integrity sha1-w1IlhD3493bfIcV1V7wIfp39/Gk=
+  
   resolve-pathname@^3.0.0:
     version "3.0.0"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/resolve-pathname/-/resolve-pathname-3.0.0.tgz#99d02224d3cf263689becbb393bc560313025dcd"
@@ -10908,7 +11231,7 @@ Lockfile:
     dependencies:
       ret "~0.1.10"
   
-  "safer-buffer@>= 2.1.2 < 3", safer-buffer@^2.0.2, safer-buffer@^2.1.0, safer-buffer@~2.1.0:
+  "safer-buffer@>= 2.1.2 < 3", "safer-buffer@>= 2.1.2 < 3.0.0", safer-buffer@^2.0.2, safer-buffer@^2.1.0, safer-buffer@~2.1.0:
     version "2.1.2"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
     integrity sha1-RPoWGwGHuVSd2Eu5GAL5vYOFzWo=
@@ -11154,7 +11477,7 @@ Lockfile:
       is-plain-object "^2.0.3"
       split-string "^3.0.1"
   
-  setimmediate@^1.0.4:
+  setimmediate@^1.0.4, setimmediate@^1.0.5:
     version "1.0.5"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/setimmediate/-/setimmediate-1.0.5.tgz#290cbb232e306942d7d7ea9b83732ab7856f8285"
     integrity sha1-KQy7Iy4waULX1+qbg3Mqt4VvgoU=
@@ -11813,6 +12136,11 @@ Lockfile:
       unquote "~1.1.1"
       util.promisify "~1.0.0"
   
+  symbol-observable@^1.0.3, symbol-observable@^1.2.0:
+    version "1.2.0"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
+    integrity sha1-wiaIrtTqs83C3+rLtWFmBWCgCAQ=
+  
   symbol-tree@^3.2.2:
     version "3.2.4"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/symbol-tree/-/symbol-tree-3.2.4.tgz#430637d248ba77e078883951fb9aa0eed7c63fa2"
@@ -12115,6 +12443,11 @@ Lockfile:
     version "0.0.6"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
     integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+  
+  ua-parser-js@^0.7.18:
+    version "0.7.21"
+    resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/ua-parser-js/-/ua-parser-js-0.7.21.tgz#853cf9ce93f642f67174273cc34565ae6f308777"
+    integrity sha1-hTz5zpP2QvZxdCc8w0Vlrm8wh3c=
   
   unicode-canonical-property-names-ecmascript@^1.0.4:
     version "1.0.4"
@@ -12576,7 +12909,7 @@ Lockfile:
     dependencies:
       iconv-lite "0.4.24"
   
-  whatwg-fetch@^3.0.0:
+  whatwg-fetch@>=0.10.0, whatwg-fetch@^3.0.0:
     version "3.4.0"
     resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/whatwg-fetch/-/whatwg-fetch-3.4.0.tgz#e11de14f4878f773fbebcde8871b2c0699af8b30"
     integrity sha1-4R3hT0h493P7683ohxssBpmvizA=
