@@ -27,6 +27,11 @@
   width: calc(100% - 200px);
   padding: 40px;
 }
+@media screen and (max-device-width: 400px) {
+  .content {
+    min-height: 146em;
+  }
+}
 /* stylelint-disable no-duplicate-selectors */
 /* stylelint-disable */
 /* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
