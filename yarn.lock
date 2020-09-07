@@ -8003,6 +8003,16 @@ mini-css-extract-plugin@0.9.0:
     schema-utils "^1.0.0"
     webpack-sources "^1.1.0"
 
+mini-css-extract-plugin@^0.11.0:
+  version "0.11.0"
+  resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/mini-css-extract-plugin/-/mini-css-extract-plugin-0.11.0.tgz#3918953075109d4ca204bf1e8a393a78d3cc821f"
+  integrity sha1-ORiVMHUQnUyiBL8eijk6eNPMgh8=
+  dependencies:
+    loader-utils "^1.1.0"
+    normalize-url "1.9.1"
+    schema-utils "^1.0.0"
+    webpack-sources "^1.1.0"
+
 mini-store@^3.0.1:
   version "3.0.6"
   resolved "https://artifactory.momenta.works:443/artifactory/api/npm/npm/mini-store/-/mini-store-3.0.6.tgz#44b86be5b2877271224ce0689b3a35a2dffb1ca9"

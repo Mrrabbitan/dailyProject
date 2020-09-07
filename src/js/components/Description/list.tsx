@@ -11,11 +11,28 @@ const { Panel } = Collapse
 
 export const DescriptionComponents: React.FC = (props) => {
   const getActionType = useSelector((state) => state?.tabStateReducer)
-  // const [example, setExample] = React.useState('')
-
-  // React.useEffect(() => {
-  //   setExample(getActionType?.data?.example)
-  // }, [getActionType])
+  const extend1Ele = (
+    <Panel header={'extend1'} key="3">
+      <CodeMirror
+        options={{
+          mode: 'javascript',
+          lineNumbers: true,
+        }}
+        value={getActionType?.data?.extend1}
+      ></CodeMirror>
+    </Panel>
+  )
+  const extend2Ele = (
+    <Panel header={'extend2'} key="4">
+      <CodeMirror
+        options={{
+          mode: 'javascript',
+          lineNumbers: true,
+        }}
+        value={getActionType?.data?.extend2}
+      ></CodeMirror>
+    </Panel>
+  )
 
   return (
     <div>
@@ -54,7 +71,9 @@ export const DescriptionComponents: React.FC = (props) => {
             value={getActionType?.data?.handwriting ?? filter.handwriting}
           ></CodeMirror>
         </Panel>
-        <Panel header="ES5 HandWriting TODO" key="3" disabled></Panel>
+        {getActionType?.data?.extend1 && extend1Ele}
+        {getActionType?.data?.extend2 && extend2Ele}
+        <Panel header="ES5 HandWriting TODO" key="5" disabled></Panel>
       </Collapse>
     </div>
   )

@@ -10,5 +10,6 @@
         "style": "css"
       }
     ]
+    // [("transform-runtime", { "polyfill": false })]
   ]
 }

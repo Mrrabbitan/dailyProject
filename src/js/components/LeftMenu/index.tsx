@@ -29,7 +29,14 @@ export const LeftMenuComponent: React.FC = () => {
           >
             promise
           </Menu.Item>
-          <Menu.Item key="3">promise.all</Menu.Item>
+          <Menu.Item
+            key="promiseAll"
+            onClick={() => {
+              dispatch({ type: TabAction.promiseAll, data: dataAll['promiseAll'] })
+            }}
+          >
+            promise.all
+          </Menu.Item>
         </SubMenu>
         <SubMenu key="sub2" icon={<DesktopOutlined />} title="ES7">
           {/* <Menu.Item key="2">promise</Menu.Item> */}

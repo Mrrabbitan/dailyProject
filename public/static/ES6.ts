@@ -97,5 +97,80 @@ export const promise = {
   }
   `,
 
-  image: true,
+  image: false,
+}
+
+//promise.all
+export const promiseAll = {
+  data: {
+    name: 'Promise.all',
+    params: 'iterable(一个可迭代对象，如 Array 或 String)',
+    paramsDes: '参数内所有的 promise 都“完成（resolved）”或参数中不包含 promise 时回调完成（resolve）；如果参数中  promise 有一个失败（rejected），此实例回调失败（reject），失败的原因是第一个失败 promise 的结果',
+    return:
+      '如果传入的参数是一个空的可迭代对象，则返回一个已完成（already resolved）状态的 Promise.如果传入的参数不包含任何 promise，则返回一个异步完成（asynchronously resolved）Promise.其它情况下返回一个处理中（pending）的Promise。这个返回的 promise 之后会在所有的 promise 都完成或有一个 promise 失败时异步地变为完成或失败',
+    attention: '由于异步执行的影响，promise的返回顺序无法确定.在任何情况下，Promise.all 返回的 promise 的完成状态的结果都是一个数组，它包含所有的传入迭代参数对象的值（也包括非 promise 值）',
+    description: 'Promise.all 的异步性（当且仅当传入的可迭代对象是空时，为同步）,Promise.all 在任意一个传入的 promise 失败时返回失败(返回的虽然很快但为异步)',
+  },
+  example: `var p1 = Promise.resolve(3);
+var p2 = 1337;
+var p3 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, 'foo');
+}); 
+
+Promise.all([p1, p2, p3]).then(values => { 
+  console.log(values); // [3, 1337, "foo"] 
+}); `,
+  handwriting: `Promise.all = function(arr){
+      if(!Array.isArray(arr)){
+        throw new TypeError('arguments is not an arr')
+      }
+
+      let length = arr.length;
+      let result = []
+      let resultNumber = 0
+      return new Promise((resolved,rejected)=>{
+        for(let i of arr){
+          i.then(data=>{
+            resultNumber++;
+            result.push(data)
+            if(resultNumber === length){
+              return resolved(result)
+            }
+          }).catch((error)=>{
+            return reject(error)
+          })
+        }
+      })
+  }`,
+
+  extend1: `//借助promise.all实现async await的并发
+  const sleep = (time=2000) => new Promise(resolve=>{
+    setTimeout(resolve,time)
+  })
+  async function getColumn(id){
+    await sleep(2000)
+    const url = '**'
+    const response(url)
+    return await response.json()
+  }
+  const showInfo = async()=>{
+    const [firstEle,secondEle] =await Promise.all([
+      getColumn(1)
+      getColumn(2)
+    ])
+  }
+  showInfo()`,
+  extend2: `//借助Array.prototype.reduce实现promise.all的同步
+  const tasks = getTaskArray();
+  return tasks.reduce((promiseChain,currentTask)=>{
+    return promiseChain.then(chainResults=>{
+      currentTask.then(currentResult=>{
+        return  [...chainResults,currentResult]
+      })
+    })
+  },Promise.resolve([])).then(arrofResults)=>{
+    //Do with all results
+  }`,
+
+  image: false,
 }

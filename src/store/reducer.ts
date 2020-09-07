@@ -1,6 +1,7 @@
 export const TabAction = {
   filter: 'filter',
   promise: 'promise',
+  promiseAll: 'promiseAll',
 }
 
 const recivedSuccess = 'success'
@@ -16,6 +17,8 @@ export const tabStateReducer = (state = initialState, action) => {
     case TabAction.filter:
       return { ...state, ...action }
     case TabAction.promise:
+      return { ...state, ...action }
+    case TabAction.promiseAll:
       return { ...state, ...action }
     default:
       return null

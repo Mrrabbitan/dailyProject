@@ -1,10 +1,7 @@
 const path = require('path')
-const HtmlWebPackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const webpack = require('webpack')
 const { getThemeVariables } = require('antd/dist/theme')
-const apiMocker = require('mocker-api')
-const mocker = require('./mocker/index.ts')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   entry: './src/index.tsx',
@@ -12,17 +9,7 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, './dist'),
   },
-  devServer: {
-    before(app) {
-      apiMocker(app, path.resolve('./mocker/index.ts'), {
-        proxy: {
-          '/repos/*': 'https://api.github.com/',
-          '/:owner/:repo/raw/:ref/*': 'http://127.0.0.1:2018',
-        },
-        changeHost: true,
-      })
-    },
-  },
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -38,7 +25,7 @@ module.exports = {
         test: /\.less$/,
         use: [
           {
-            loader: 'style-loader',
+            loader: MiniCssExtractPlugin.loader,
           },
           {
             loader: 'css-loader', // translates CSS into CommonJS
@@ -64,7 +51,15 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: [
+          //创建style表情，将样式放入
+          // 'style-loader'
+          //  这个loader取代 'style-loader' 。作用：提取js中的css文件,
+          MiniCssExtractPlugin.loader,
+          // 'style-loader',
+          //将css文件整理到js文件中
+          'css-loader',
+        ],
       },
       // {
       //   test: /\.scss$/,
@@ -103,6 +98,8 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new MiniCssExtractPlugin(),
+
     // new CleanWebpackPlugin(),
     // new HtmlWebPackPlugin({
     //   filename: 'index.html',
