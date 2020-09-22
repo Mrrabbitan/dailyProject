@@ -9,6 +9,18 @@
   font-size: 20px;
   box-shadow: 10px 5px 5px #aaa;
 }
+.headerTop .headerRight {
+  display: inline-block;
+  float: right;
+  padding-right: 40px;
+}
+.headerTop .headerRight > span {
+  padding: 5px;
+  cursor: pointer;
+}
+.headerTop .headerRight > span > a {
+  color: white !important;
+}
 .content {
   display: flex;
   align-items: flex-start;
