@@ -1,20 +1,23 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Descriptions, Collapse } from 'antd'
 import { useSelector } from 'react-redux'
 import { UnControlled as CodeMirror } from 'react-codemirror2'
+import GitalkComponent from 'gitalk/dist/gitalk-component'
+import 'gitalk/dist/gitalk.css'
+import CopyClipboard from '../copyClipboard'
+
 require('codemirror/lib/codemirror.css')
 require('codemirror/mode/javascript/javascript')
 require('./list.less')
 const { filter } = require('../../../../public/static/ES6.ts')
 const { Panel } = Collapse
-import GitalkComponent from 'gitalk/dist/gitalk-component'
-import 'gitalk/dist/gitalk.css'
 
 export const DescriptionComponents: React.FC = (props) => {
   const getActionType = useSelector((state) => state?.tabStateReducer)
 
   const extend1Ele = (
-    <Panel header={'extend1'} key="3">
+    <Panel header={'extend1'} key="3" className="Panel">
+      <CopyClipboard data={getActionType?.data?.extend1} />
       <CodeMirror
         options={{
           mode: 'javascript',
@@ -24,8 +27,10 @@ export const DescriptionComponents: React.FC = (props) => {
       ></CodeMirror>
     </Panel>
   )
+
   const extend2Ele = (
-    <Panel header={'extend2'} key="4">
+    <Panel header={'extend2'} key="4" className="Panel">
+      <CopyClipboard data={getActionType?.data?.extend2} />
       <CodeMirror
         options={{
           mode: 'javascript',
@@ -36,7 +41,8 @@ export const DescriptionComponents: React.FC = (props) => {
     </Panel>
   )
   const extend3Ele = (
-    <Panel header={'extend3'} key="6">
+    <Panel header={'extend3'} key="6" className="Panel">
+      <CopyClipboard data={getActionType?.data?.extend3} />
       <CodeMirror
         options={{
           mode: 'javascript',
@@ -46,7 +52,6 @@ export const DescriptionComponents: React.FC = (props) => {
       ></CodeMirror>
     </Panel>
   )
-
   return (
     <div>
       <Descriptions title={getActionType?.data?.data?.name ?? filter.data.name} column={1} bordered>
@@ -66,7 +71,8 @@ export const DescriptionComponents: React.FC = (props) => {
         <Descriptions.Item label="Config Info">{getActionType?.data?.data?.description ?? filter.data.description}</Descriptions.Item>
       </Descriptions>
       <Collapse defaultActiveKey={[1]}>
-        <Panel header="Using Example" key="1">
+        <Panel header="Using Example" key="1" className="Panel">
+          <CopyClipboard data={getActionType?.data?.example ?? filter.example} />
           <CodeMirror
             options={{
               mode: 'javascript',
@@ -75,7 +81,8 @@ export const DescriptionComponents: React.FC = (props) => {
             value={getActionType?.data?.example ?? filter.example}
           ></CodeMirror>
         </Panel>
-        <Panel header="ES6+ HandWriting" key="2">
+        <Panel header="ES6+ HandWriting" key="2" className="Panel">
+          <CopyClipboard data={getActionType?.data?.handwriting ?? filter.handwriting} />
           <CodeMirror
             options={{
               mode: 'javascript',

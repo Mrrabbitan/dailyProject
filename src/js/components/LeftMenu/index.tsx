@@ -66,7 +66,7 @@ export const LeftMenuComponent: React.FC = () => {
         <SubMenu key="11" icon={<AppstoreOutlined />} title="ES11"></SubMenu>
         <SubMenu key="设计模式" icon={<AppstoreOutlined />} title="设计模式">
           <Menu.Item
-            key="发布-订阅模式"
+            key="eventEmitter"
             onClick={() => {
               dispatch({ type: TabAction.eventEmitter, data: princeple['eventEmitter'] })
             }}
@@ -74,7 +74,7 @@ export const LeftMenuComponent: React.FC = () => {
             发布-订阅模式
           </Menu.Item>
           <Menu.Item
-            key="单一职责模式"
+            key="solidSingle"
             onClick={() => {
               dispatch({ type: TabAction.eventEmitter, data: princeple['solidSingle'] })
             }}
@@ -82,7 +82,7 @@ export const LeftMenuComponent: React.FC = () => {
             单一职责原则
           </Menu.Item>
           <Menu.Item
-            key="开放封闭原则"
+            key="openClose"
             onClick={() => {
               dispatch({ type: TabAction.openClose, data: princeple['openClose'] })
             }}
@@ -90,7 +90,7 @@ export const LeftMenuComponent: React.FC = () => {
             开放封闭原则
           </Menu.Item>
           <Menu.Item
-            key="里氏替换原则"
+            key="lspPriceple"
             onClick={() => {
               dispatch({ type: TabAction.lspPriceple, data: princeple['lspPriceple'] })
             }}
@@ -98,7 +98,7 @@ export const LeftMenuComponent: React.FC = () => {
             里氏替换原则
           </Menu.Item>
           <Menu.Item
-            key="接口隔离原则"
+            key="interfacePriceple"
             onClick={() => {
               dispatch({ type: TabAction.interfaceSegeration, data: princeple['interfacePriceple'] })
             }}
@@ -106,7 +106,7 @@ export const LeftMenuComponent: React.FC = () => {
             接口隔离原则
           </Menu.Item>
           <Menu.Item
-            key="依赖倒置原则"
+            key="dependencyInversion"
             onClick={() => {
               dispatch({ type: TabAction.dependencyInversion, data: princeple['dependencyInversion'] })
             }}
